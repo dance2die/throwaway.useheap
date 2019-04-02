@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "ESNext",
+    "module": "ES2015",
     "lib": ["dom", "esnext"],
     // "incremental": false,
     "declaration": true,

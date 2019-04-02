@@ -1,35 +1,69 @@
 {
   "/home/dance2die/src/throwaway/temp/mylib/dist/mylib.cjs.development.js": {
-    "bundled": 75,
-    "minified": 66,
-    "gzipped": 68
+    "bundled": 2398,
+    "minified": 881,
+    "gzipped": 468
   },
   "/home/dance2die/src/throwaway/temp/mylib/dist/mylib.cjs.production.js": {
-    "bundled": 75,
-    "minified": 66,
-    "gzipped": 68
+    "bundled": 2398,
+    "minified": 881,
+    "gzipped": 468
   },
   "/home/dance2die/src/throwaway/temp/mylib/dist/mylib.umd.development.js": {
-    "bundled": 338,
-    "minified": 212,
-    "gzipped": 164
+    "bundled": 2739,
+    "minified": 829,
+    "gzipped": 482
   },
   "/home/dance2die/src/throwaway/temp/mylib/dist/mylib.umd.production.js": {
-    "bundled": 338,
-    "minified": 212,
-    "gzipped": 164
+    "bundled": 2739,
+    "minified": 829,
+    "gzipped": 482
   },
   "/home/dance2die/src/throwaway/temp/mylib/dist/mylib.es.production.js": {
-    "bundled": 50,
-    "minified": 42,
-    "gzipped": 54,
+    "bundled": 2237,
+    "minified": 754,
+    "gzipped": 412,
     "treeshaked": {
       "rollup": {
-        "code": 0,
-        "import_statements": 0
+        "code": 14,
+        "import_statements": 14
       },
       "webpack": {
-        "code": 951
+        "code": 998
+      }
+    }
+  },
+  "/home/dance2die/src/throwaway/temp/mylib/dist/useminheap.cjs.production.js": {
+    "bundled": 2395,
+    "minified": 878,
+    "gzipped": 468
+  },
+  "/home/dance2die/src/throwaway/temp/mylib/dist/useminheap.cjs.development.js": {
+    "bundled": 2395,
+    "minified": 878,
+    "gzipped": 468
+  },
+  "/home/dance2die/src/throwaway/temp/mylib/dist/useminheap.umd.development.js": {
+    "bundled": 2741,
+    "minified": 831,
+    "gzipped": 477
+  },
+  "/home/dance2die/src/throwaway/temp/mylib/dist/useminheap.umd.production.js": {
+    "bundled": 2741,
+    "minified": 831,
+    "gzipped": 477
+  },
+  "/home/dance2die/src/throwaway/temp/mylib/dist/useminheap.es.production.js": {
+    "bundled": 2241,
+    "minified": 761,
+    "gzipped": 413,
+    "treeshaked": {
+      "rollup": {
+        "code": 14,
+        "import_statements": 14
+      },
+      "webpack": {
+        "code": 998
       }
     }
   }

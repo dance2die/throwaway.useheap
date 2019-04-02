@@ -24,7 +24,7 @@ describe("useMinHeap", () => {
   it("adds correctly", () => {
     const { result } = renderHook(() => useMinHeap([]));
     const heap = result.current;
-
+    
     act(() => { heap.add(1); });
     expect(heap.dump()).toEqual([1]);
     act(() => { heap.add(3); });

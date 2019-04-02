@@ -1,9 +1,9 @@
 {
-  "name": "mylib",
+  "name": "useminheap",
   "version": "0.1.0",
   "main": "dist/index.js",
-  "umd:main": "dist/mylib.umd.production.js",
-  "module": "dist/mylib.es.production.js",
+  "umd:main": "dist/useminheap.umd.production.js",
+  "module": "dist/useminheap.es.production.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
