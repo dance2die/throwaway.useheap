@@ -1,7 +1,7 @@
 import { renderHook, act } from "react-hooks-testing-library";
 import { useMinHeap } from "../src";
 
-const log = console.log;
+// const log = console.log;
 
 describe("useMinHeap", () => {
   it("returns undefined when heap is empty", () => {
@@ -17,13 +17,25 @@ describe("useMinHeap", () => {
     const { result } = renderHook(() => useMinHeap([]));
     const heap = result.current;
 
-    act(() => {
-      heap.add(1);
+    const input = [10, 2, 1, 99, 3];
+    // ascending order
+    const expectedValues = [...input].sort((a, b) => a - b);
+
+    input.map(value => {
+      act(() => {
+        heap.add(value);
+      });
     });
 
-    log(`heap.dump`, heap.dump());
+    expectedValues.map(expected => {
+      act(() => {
+        expect(heap.get()).toBe(expected);
+      });
+    });
+
+    // Nothing else to pop, so the result should be undefined
     act(() => {
-      expect(heap.get()).toBe(1);
+      expect(heap.get()).toBeUndefined();
     });
   });
 
