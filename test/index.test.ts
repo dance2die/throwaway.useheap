@@ -1,9 +1,32 @@
 import { renderHook, act } from "react-hooks-testing-library";
 import { useMinHeap } from "../src";
 
-// const log = console.log;
+const log = console.log;
 
 describe("useMinHeap", () => {
+  it("returns undefined when heap is empty", () => {
+    const { result } = renderHook(() => useMinHeap([]));
+    const heap = result.current;
+
+    act(() => {
+      expect(heap.get()).toBeUndefined();
+    });
+  });
+
+  it("gets minimum correctly", () => {
+    const { result } = renderHook(() => useMinHeap([]));
+    const heap = result.current;
+
+    act(() => {
+      heap.add(1);
+    });
+
+    log(`heap.dump`, heap.dump());
+    act(() => {
+      expect(heap.get()).toBe(1);
+    });
+  });
+
   it("renders hook correctly", () => {
     const { result } = renderHook(() => useMinHeap([]));
     expect(result.current).not.toBeNull();
@@ -24,7 +47,7 @@ describe("useMinHeap", () => {
   it("adds correctly", () => {
     const { result } = renderHook(() => useMinHeap([]));
     const heap = result.current;
-    
+
     act(() => { heap.add(1); });
     expect(heap.dump()).toEqual([1]);
     act(() => { heap.add(3); });
