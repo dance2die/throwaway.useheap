@@ -1,0 +1,36 @@
+{
+  "/home/dance2die/src/throwaway/temp/mylib/dist/mylib.cjs.development.js": {
+    "bundled": 75,
+    "minified": 66,
+    "gzipped": 68
+  },
+  "/home/dance2die/src/throwaway/temp/mylib/dist/mylib.cjs.production.js": {
+    "bundled": 75,
+    "minified": 66,
+    "gzipped": 68
+  },
+  "/home/dance2die/src/throwaway/temp/mylib/dist/mylib.umd.development.js": {
+    "bundled": 338,
+    "minified": 212,
+    "gzipped": 164
+  },
+  "/home/dance2die/src/throwaway/temp/mylib/dist/mylib.umd.production.js": {
+    "bundled": 338,
+    "minified": 212,
+    "gzipped": 164
+  },
+  "/home/dance2die/src/throwaway/temp/mylib/dist/mylib.es.production.js": {
+    "bundled": 50,
+    "minified": 42,
+    "gzipped": 54,
+    "treeshaked": {
+      "rollup": {
+        "code": 0,
+        "import_statements": 0
+      },
+      "webpack": {
+        "code": 951
+      }
+    }
+  }
+}
