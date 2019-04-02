@@ -11,10 +11,28 @@ const enum ActionType {
 type Action = { type: ActionType.Add; payload: { value: Value } };
 
 // In-line swap: https://stackoverflow.com/a/16201730/4035
-function swap(values: Value[], i1: number, i2: number) {
+function swap(values: Value[], i1: number, i2: number): Value[] {
   // log(`       swap Before => ${values}, i1=${i1}, i2=${i2}`);
-  values[i2] = [values[i1], (values[i1] = values[i2])][0];
+  // values[i2] = [values[i1], (values[i1] = values[i2])][0];
   // log(`       swap AFTER => ${values}, i1=${i1}, i2=${i2}`);
+  //          0, 1, 2, 3, 4, 5, 6
+  // values=[10,20,30,40,50,60,70], i1=1 (20), i2=4(50) then
+  // [10], [?], [30, 40], [?], [60, 70]
+
+  const left = values.slice(0, i1);
+  const middle = values.slice(i1 + 1, i2);
+  const right = values.slice(i2 + 1);
+
+  // log(
+  //   `values=${values}, i1=${i1}, i2=${i2}, left, values[i2], middle, values[i1], right`,
+  //   left,
+  //   values[i2],
+  //   middle,
+  //   values[i1],
+  //   right
+  // );
+
+  return [...left, values[i2], ...middle, values[i1], ...right];
 }
 
 const getParentIndex = (childIndex: number): number => ~~((childIndex - 1) / 2);
@@ -24,7 +42,7 @@ const getParent = (values: Value[], childIndex: number): Value =>
   values[getParentIndex(childIndex)];
 
 function heapifyUp(values: Value[]) {
-  const heapedValues = [...values];
+  let heapedValues = [...values];
   let index = heapedValues.length - 1;
   // log(
   //   `index=${index},
@@ -41,7 +59,7 @@ function heapifyUp(values: Value[]) {
   ) {
     // log(`while curr=${heapedValues[index]} index=${index}`);
     const parentIndex = getParentIndex(index);
-    swap(heapedValues, parentIndex, index);
+    heapedValues = swap(heapedValues, parentIndex, index);
     index = parentIndex;
   }
 
