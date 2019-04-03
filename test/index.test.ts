@@ -8,9 +8,16 @@ describe("useMinHeap", () => {
     const { result } = renderHook(() => useMinHeap([]));
     const heap = result.current;
 
-    act(() => {
-      expect(heap.get()).toBeUndefined();
-    });
+    act(() => expect(heap.get()).toBeUndefined());
+    act(() => expect(heap.peek()).toBeUndefined());
+  });
+
+  it("peeks correctly without removing any items", () => {
+    const input = [10, 2, 1, 99, 3];
+    const { result } = renderHook(() => useMinHeap(input));
+    const heap = result.current;
+
+    input.map(_ => expect(heap.peek()).toEqual(1));
   });
 
   it("gets minimum correctly", () => {
@@ -21,22 +28,13 @@ describe("useMinHeap", () => {
     // ascending order
     const expectedValues = [...input].sort((a, b) => a - b);
 
-    input.map(value => {
-      act(() => {
-        heap.add(value);
-      });
-    });
-
-    expectedValues.map(expected => {
-      act(() => {
-        expect(heap.get()).toBe(expected);
-      });
-    });
+    input.map(value => act(() => heap.add(value)));
+    expectedValues.map(expected =>
+      act(() => expect(heap.get()).toBe(expected))
+    );
 
     // Nothing else to pop, so the result should be undefined
-    act(() => {
-      expect(heap.get()).toBeUndefined();
-    });
+    act(() => expect(heap.get()).toBeUndefined());
   });
 
   it("renders hook correctly", () => {

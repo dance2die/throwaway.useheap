@@ -124,6 +124,8 @@ function reducer(state: Value[], action: Action): Value[] {
   }
 }
 
+type HeapValue = Value | undefined;
+
 function useMinHeap(initialValues: Value[] = []) {
   const [values, dispatch] = React.useReducer(
     reducer,
@@ -145,7 +147,7 @@ function useMinHeap(initialValues: Value[] = []) {
     dispatch({ type: ActionType.Add, payload: { value } });
   }
 
-  function get(): Value | undefined {
+  function get(): HeapValue {
     const minimumValue = freshValues.current[0];
 
     // We pop the first value and the current values is set to everything after the first item
@@ -157,7 +159,11 @@ function useMinHeap(initialValues: Value[] = []) {
     return minimumValue;
   }
 
-  return { dump, add, get };
+  function peek(): HeapValue {
+    return freshValues.current[0];
+  }
+
+  return { dump, add, get, peek };
 }
 
 export { useMinHeap };
